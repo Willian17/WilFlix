@@ -1,30 +1,55 @@
-import React from 'react';
-import Menu from '../../Menu'
+import React, { useState , useEffect} from 'react';
+import {api} from '../../../config'
 import BannerMain from '../../BannerMain'
 import Carousel from '../../Carousel'
-import Footer from '../../Footer';
-
-import dadosIniciais from '../../../data/dados_iniciais.json'
+import MenuFooter from '../../MenuFooter'
 
 function Home() {
+  const [dataInitial , setDataInitial] = useState([])
+  
+  useEffect(()=> {
+    api.get('categorias?_embed=videos').then(response => {
+      setDataInitial(response.data)
+    }).catch(err => {
+      console.error(err)
+    })
+  }, [])
+  
   return (
-    <div style={{background: '#141414'}}>
-    <Menu />
     
-    <BannerMain 
-    videoTitle="Programei 4 robôs que criam vídeos para mim no YouTube"
-    url="https://www.youtube.com/watch?v=kjhu1LEmRpY&t=15s"
-    videoDescription="Misturei o Watson da IBM + Adobe After Effects + Wikipedia + Google Images API + Algorithmia + JavaScript + Node.js para criar 4 robôs que geram vídeos automáticos no YouTube."
-    />
-    
-    { dadosIniciais.categorias.map(category => 
-      (<Carousel category={category}/>))
+    <MenuFooter paddingAll={0}>
+      { dataInitial.length === 0 && (<div>Loading...</div>) }
+
+    { dataInitial.map((category , index) => {
+      if(index === 0){
+        return (
+          <div key={category.id}>
+          <BannerMain 
+          videoTitle={category.videos[0].titulo}
+          url={category.videos[0].url}
+          videoDescription={category.videos[0].description}
+          />
+          <Carousel 
+          ignoreFirstVideo
+          category={category}
+          />
+          </div>
+          )
+        }
+        
+        return (
+          <Carousel 
+          key={category.id}
+          category={category}
+          />
+          )
+        }
+        )
+      }
+      </MenuFooter>
+      
+      )
     }
-    <Footer />
     
-    </div>
-    );
-  }
-  
-  export default Home;
-  
+    export default Home;
+    

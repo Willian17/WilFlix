@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import useForm from '../../../../hooks/useForm'
+import { api } from '../../../../config'
 import { Link } from 'react-router-dom';
 import MenuFooter from '../../../MenuFooter';
 import FormField from '../../../FormField';
@@ -9,89 +10,77 @@ export default function CadastroCategoria() {
   const initialValues = {
     name: '',
     describe: '',
-    color: '#000',
+    url: '#000',
   };
-
-  const [values, setValues] = useState(initialValues);
+  const {clearForm,  handleChangeValues , values} = useForm(initialValues);
+  
+  
   const [listaCategorias, setListCategories] = useState([]);
-
+  
   function handleAddCategoria(event) {
     event.preventDefault();
     setListCategories([...listaCategorias, values]);
-    setValues(initialValues);
-  }
-
-  function setValue(chave, valor) {
-    setValues({ ...values, [chave]: valor });
-  }
-
-  function handleChangeValues(event) {
-    setValue(
-      event.target.getAttribute('name'),
-      event.target.value,
-    );
-  }
-
+    clearForm()
+  } 
+  
+  
   useEffect(()=> {
-    const baseUrl = window.location.hostname.includes('localhost')
-    ? 'http://localhost:8080'
-    : 'https://backend-wilflix.herokuapp.com'
-    axios.get(`${baseUrl}/categorias`).then(response =>{
-      console.log(response.data)
+    api.get('categorias').then(response =>{
       setListCategories([...response.data])
     })
   } , [])
-
+  
   return (
     <MenuFooter>
-      <h1>
-        Cadastro Categoria:
-        {values.name}
-      </h1>
-
-      <form onSubmit={handleAddCategoria}>
-
-        <FormField
-          label="Nome da categoria"
-          type="text"
-          name="name"
-          onChange={handleChangeValues}
-          value={values.name}
-        />
-
-        <FormField
-          label="Descrição"
-          type="textarea"
-          name="describe"
-          onChange={handleChangeValues}
-          value={values.describe}
-        />
-
-        <FormField
-          label="cor"
-          type="color"
-          name="color"
-          onChange={handleChangeValues}
-          value={values.color}
-        />
-
-        <button>
-          Cadastrar
-        </button>
-
-      </form>
-
-      {listaCategorias.map((category, indice) => (
-        <li key={`${category.name}/${indice}`}>
-          {category.titulo}
-        </li>
-
+    <h1>
+    Cadastro Categoria:
+    {values.name}
+    </h1>
+    
+    <form onSubmit={handleAddCategoria}>
+    
+    <FormField
+    label="Nome da categoria"
+    type="text"
+    name="name"
+    onChange={handleChangeValues}
+    value={values.name}
+    />
+    
+    <FormField
+    label="Descrição"
+    type="textarea"
+    name="describe"
+    onChange={handleChangeValues}
+    value={values.describe}
+    />
+    
+    <FormField
+    label="cor"
+    type="color"
+    name="color"
+    onChange={handleChangeValues}
+    value={values.color}
+    />
+    
+    <button>
+    Cadastrar
+    </button>
+    
+    </form>
+    
+    {listaCategorias.map((category, indice) => (
+      <li key={`${category.name}/${indice}`}>
+      {category.titulo}
+      </li>
+      
       ))}
-
+      
       <Link to="/">
-        Voltar para a home
+      Voltar para a home
       </Link>
-
-    </MenuFooter>
-  );
-}
+      
+      </MenuFooter>
+      );
+    }
+    
