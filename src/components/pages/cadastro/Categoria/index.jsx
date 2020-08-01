@@ -33,7 +33,9 @@ export default function CadastroCategoria() {
   }
 
   useEffect(()=> {
-    const baseUrl = 'http://localhost:8080'
+    const baseUrl = window.location.hostname.includes('localhost')
+    ? 'http://localhost:8080'
+    : 'https://backend-wilflix.herokuapp.com'
     axios.get(`${baseUrl}/categorias`).then(response =>{
       console.log(response.data)
       setListCategories([...response.data])
