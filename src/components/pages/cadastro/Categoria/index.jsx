@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import useForm from '../../../../hooks/useForm'
 import { api } from '../../../../config'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import MenuFooter from '../../../MenuFooter';
 import FormField from '../../../FormField';
 
 
 export default function CadastroCategoria() {
+  const history = useHistory()
   const initialValues = {
     name: '',
     describe: '',
-    url: '#000',
+    color: '#000',
   };
   const {clearForm,  handleChangeValues , values} = useForm(initialValues);
   
   
-  const [listaCategorias, setListCategories] = useState([]);
-  
   function handleAddCategoria(event) {
     event.preventDefault();
-    setListCategories([...listaCategorias, values]);
-    clearForm()
+    api.post('categorias' , {
+      titulo: values.name,
+      cor: values.color
+    }).then(()=> {
+      clearForm();
+      history.push('/')
+    })
   } 
   
   
-  useEffect(()=> {
-    api.get('categorias').then(response =>{
-      setListCategories([...response.data])
-    })
-  } , [])
   
   return (
     <MenuFooter>
@@ -68,13 +67,6 @@ export default function CadastroCategoria() {
     </button>
     
     </form>
-    
-    {listaCategorias.map((category, indice) => (
-      <li key={`${category.name}/${indice}`}>
-      {category.titulo}
-      </li>
-      
-      ))}
       
       <Link to="/">
       Voltar para a home

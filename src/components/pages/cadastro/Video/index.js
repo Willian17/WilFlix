@@ -89,8 +89,8 @@ export default function CadastroVideo() {
     
     </form>
     
-    <Link to="/">
-      Voltar para a home
+    <Link to="/cadastro/categoria">
+      Cadastrar categoria
     </Link>
     
     </MenuFooter>

@@ -18,7 +18,11 @@ function Home() {
   return (
     
     <MenuFooter paddingAll={0}>
-      { dataInitial.length === 0 && (<div>Loading...</div>) }
+      { dataInitial.length === 0 && (
+      <div>
+         Loading...
+      </div>
+      ) }
 
     { dataInitial.map((category , index) => {
       if(index === 0){
@@ -27,7 +31,7 @@ function Home() {
           <BannerMain 
           videoTitle={category.videos[0].titulo}
           url={category.videos[0].url}
-          videoDescription={category.videos[0].description}
+          videoDescription={category.videos[0].descricao}
           />
           <Carousel 
           ignoreFirstVideo
