@@ -1,68 +1,105 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center"> WilFlix </h1>
 
-## Available Scripts
+  <p align="center">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/Willian17/WilFlix">
+    <img alt="stars" src="https://img.shields.io/github/stars/Willian17/WilFlix?logo=github">
+    <img alt="size" src="https://img.shields.io/github/repo-size/Willian17/WilFlix">
+    <img alt="license" src="https://img.shields.io/github/license/Willian17/WilFlix">
+  </p>
+  
+  <p align="center">
+    <a href="#sobre">Sobre</a> •
+    <a href="#funcionalidades">Funcionalidades</a> •
+    <a href="#executar">Executar</a> •
+    <a href="#tecnologias">Tecnologias</a> •
+    <a href="#contribuidores">Contribuidores</a> •
+    <a href="#contribuir">Contribuir</a> •
+    <a href="#licenca">Licença</a>
+  </p>
+  
+  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#sobre-o-projeto)
 
-In the project directory, you can run:
+  ## :pushpin: Sobre o Projeto <a name="sobre"></a>
+  <div>
+  <p>Projeto do evento imersão da alura. Netflix adaptado para youtube, podendo colcar seus videos favoritos, interface semelhante a netflix</p>
+    
+https://github.com/Willian17/WilFlix/assets/53010824/03802992-4666-4fdc-88da-2641632b605d
+  </div>
+  
+  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#funcionalidades)
 
-### `yarn start`
+  ## :rocket: Funcionalidades <a name="funcionalidades"></a>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  - [x] Listagem de videos por Categoria
+ - [x] Cadastro de video
+ - [x] Cadastro de categoria
+  
+  [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#executar)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  ## :construction_worker: Como executar <a name="executar"></a>
 
-### `yarn test`
+  ### Pré-requisitos
+  Ter o <a href="https://nodejs.org/en/">Node.js</a> instalado na maquina.
+  
+  ### Clonar Repositório
+  $ git clone https://github.com/Willian17/WilFlix.git
+  
+  ### Instalar Dependencias
+  ```
+  $ npm install
+  ```
+  ### Executar Aplicação
+  Api Json
+  ```
+  $ npm run server:static
+  ```
+  Frontend
+  ```
+  $ npm dev
+  ```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `yarn build`
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](##tecnologias)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :computer: Tecnologias <a name="tecnologias"></a>
+<ul>
+<li>React</li>
+<li>Styled Components</li>
+<li>Json-Server</li>
+<li>React-Slick</li>
+</ul>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🤝 Contribuidores <a name="contribuidores"></a>
 
-### `yarn eject`
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<a href = "https://github.com/Willian17/WilFlix/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=Willian17/WilFlix"/>
+</a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#contribuidores)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 😄 Seja um dos contribuidores<br> <a name="contribuir"></a>
 
-## Learn More
+Contribuições são sempre bem-vindas!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork o Projeto
+2. Criar uma Branch (git checkout -b feature/AmazingFeature)
+3. Commit suas alterações (git commit -m 'Add some AmazingFeature)
+4. Push na Branch (git push origin feature/AmazingFeature)
+5. Abra um Pull Request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#licensa)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## 📝 Licença <a name="licenca"></a>
 
-### Analyzing the Bundle Size
+Esse projeto está sob licença [MIT](LICENSE).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## :man_astronaut: Mostre seu apoio 
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Dê uma ⭐️ se esse projeto te ajudou!
